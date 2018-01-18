@@ -11,8 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/NoActionBar">
-        <activity android:name=".screens.splash.SplashActivity"
-            android:theme="@style/SplashScreenTheme">
+        <activity android:name=".screens.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

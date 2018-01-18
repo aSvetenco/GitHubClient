@@ -13,8 +13,4 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="SplashScreenTheme" parent="NoActionBar">
-        <item name="android:windowBackground">@drawable/github_logo</item>
-    </style>
-
 </resources>
