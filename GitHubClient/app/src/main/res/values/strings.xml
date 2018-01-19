@@ -3,6 +3,12 @@
     <string name="log_in">Continue</string>
     <string name="login_hint">Login</string>
     <string name="password_hint">Password</string>
-    <string name="user_name_empty">UserName can\\\'t be empty</string>
-    <string name="password_empty">Password can\\\'t be empty</string>
+    <string name="user_name_empty">UserName can\'t be empty</string>
+    <string name="password_empty">Password can\'t be empty</string>
+    <string name="search_view_hint">Enter gitHub user name</string>
+    <string name="user_doest_have_repo">Seems that user dosen\'t have any repos</string>
+    <string name="user_dosent_exist">Seems that user dosen\'t exist</string>
+    <string name="error_general">Oops, something went wrong:(</string>
+    <string name="error_no_network">No network connection</string>
+    <string name="see_user_repos">See users repos %1$s</string>
 </resources>

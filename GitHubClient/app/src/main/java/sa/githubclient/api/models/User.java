@@ -1,17 +1,16 @@
-
 package sa.githubclient.api.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Contributor {
+public class User{
 
     @SerializedName("login")
     @Expose
     private String login;
     @SerializedName("id")
     @Expose
-    private int id;
+    private Integer id;
     @SerializedName("avatar_url")
     @Expose
     private String avatarUrl;
@@ -57,260 +56,284 @@ public class Contributor {
     @SerializedName("site_admin")
     @Expose
     private Boolean siteAdmin;
-    @SerializedName("contributions")
+    @SerializedName("name")
     @Expose
-    private Integer contributions;
+    private String name;
+    @SerializedName("company")
+    @Expose
+    private String company;
+    @SerializedName("blog")
+    @Expose
+    private String blog;
+    @SerializedName("location")
+    @Expose
+    private String location;
+    @SerializedName("email")
+    @Expose
+    private String email;
+    @SerializedName("hireable")
+    @Expose
+    private Boolean hireable;
+    @SerializedName("bio")
+    @Expose
+    private String bio;
+    @SerializedName("public_repos")
+    @Expose
+    private Integer publicRepos;
+    @SerializedName("public_gists")
+    @Expose
+    private Integer publicGists;
+    @SerializedName("followers")
+    @Expose
+    private Integer followers;
+    @SerializedName("following")
+    @Expose
+    private Integer following;
+    @SerializedName("created_at")
+    @Expose
+    private String createdAt;
+    @SerializedName("updated_at")
+    @Expose
+    private String updatedAt;
 
-    /**
-     * @return The login
-     */
     public String getLogin() {
         return login;
     }
 
-    /**
-     * @param login The login
-     */
     public void setLogin(String login) {
         this.login = login;
     }
 
-    /**
-     * @return The id
-     */
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    /**
-     * @param id The id
-     */
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    /**
-     * @return The avatarUrl
-     */
     public String getAvatarUrl() {
         return avatarUrl;
     }
 
-    /**
-     * @param avatarUrl The avatar_url
-     */
     public void setAvatarUrl(String avatarUrl) {
         this.avatarUrl = avatarUrl;
     }
 
-    /**
-     * @return The gravatarId
-     */
     public String getGravatarId() {
         return gravatarId;
     }
 
-    /**
-     * @param gravatarId The gravatar_id
-     */
     public void setGravatarId(String gravatarId) {
         this.gravatarId = gravatarId;
     }
 
-    /**
-     * @return The url
-     */
     public String getUrl() {
         return url;
     }
 
-    /**
-     * @param url The url
-     */
     public void setUrl(String url) {
         this.url = url;
     }
 
-    /**
-     * @return The htmlUrl
-     */
     public String getHtmlUrl() {
         return htmlUrl;
     }
 
-    /**
-     * @param htmlUrl The html_url
-     */
     public void setHtmlUrl(String htmlUrl) {
         this.htmlUrl = htmlUrl;
     }
 
-    /**
-     * @return The followersUrl
-     */
     public String getFollowersUrl() {
         return followersUrl;
     }
 
-    /**
-     * @param followersUrl The followers_url
-     */
     public void setFollowersUrl(String followersUrl) {
         this.followersUrl = followersUrl;
     }
 
-    /**
-     * @return The followingUrl
-     */
     public String getFollowingUrl() {
         return followingUrl;
     }
 
-    /**
-     * @param followingUrl The following_url
-     */
     public void setFollowingUrl(String followingUrl) {
         this.followingUrl = followingUrl;
     }
 
-    /**
-     * @return The gistsUrl
-     */
     public String getGistsUrl() {
         return gistsUrl;
     }
 
-    /**
-     * @param gistsUrl The gists_url
-     */
     public void setGistsUrl(String gistsUrl) {
         this.gistsUrl = gistsUrl;
     }
 
-    /**
-     * @return The starredUrl
-     */
     public String getStarredUrl() {
         return starredUrl;
     }
 
-    /**
-     * @param starredUrl The starred_url
-     */
     public void setStarredUrl(String starredUrl) {
         this.starredUrl = starredUrl;
     }
 
-    /**
-     * @return The subscriptionsUrl
-     */
     public String getSubscriptionsUrl() {
         return subscriptionsUrl;
     }
 
-    /**
-     * @param subscriptionsUrl The subscriptions_url
-     */
     public void setSubscriptionsUrl(String subscriptionsUrl) {
         this.subscriptionsUrl = subscriptionsUrl;
     }
 
-    /**
-     * @return The organizationsUrl
-     */
     public String getOrganizationsUrl() {
         return organizationsUrl;
     }
 
-    /**
-     * @param organizationsUrl The organizations_url
-     */
     public void setOrganizationsUrl(String organizationsUrl) {
         this.organizationsUrl = organizationsUrl;
     }
 
-    /**
-     * @return The reposUrl
-     */
     public String getReposUrl() {
         return reposUrl;
     }
 
-    /**
-     * @param reposUrl The repos_url
-     */
     public void setReposUrl(String reposUrl) {
         this.reposUrl = reposUrl;
     }
 
-    /**
-     * @return The eventsUrl
-     */
     public String getEventsUrl() {
         return eventsUrl;
     }
 
-    /**
-     * @param eventsUrl The events_url
-     */
     public void setEventsUrl(String eventsUrl) {
         this.eventsUrl = eventsUrl;
     }
 
-    /**
-     * @return The receivedEventsUrl
-     */
     public String getReceivedEventsUrl() {
         return receivedEventsUrl;
     }
 
-    /**
-     * @param receivedEventsUrl The received_events_url
-     */
     public void setReceivedEventsUrl(String receivedEventsUrl) {
         this.receivedEventsUrl = receivedEventsUrl;
     }
 
-    /**
-     * @return The type
-     */
     public String getType() {
         return type;
     }
 
-    /**
-     * @param type The type
-     */
     public void setType(String type) {
         this.type = type;
     }
 
-    /**
-     * @return The siteAdmin
-     */
     public Boolean getSiteAdmin() {
         return siteAdmin;
     }
 
-    /**
-     * @param siteAdmin The site_admin
-     */
     public void setSiteAdmin(Boolean siteAdmin) {
         this.siteAdmin = siteAdmin;
     }
 
-    /**
-     * @return The contributions
-     */
-    public Integer getContributions() {
-        return contributions;
+    public String getName() {
+        return name;
     }
 
-    /**
-     * @param contributions The contributions
-     */
-    public void setContributions(Integer contributions) {
-        this.contributions = contributions;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public String getBlog() {
+        return blog;
+    }
+
+    public void setBlog(String blog) {
+        this.blog = blog;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Boolean getHireable() {
+        return hireable;
+    }
+
+    public void setHireable(Boolean hireable) {
+        this.hireable = hireable;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public Integer getPublicRepos() {
+        return publicRepos;
+    }
+
+    public void setPublicRepos(Integer publicRepos) {
+        this.publicRepos = publicRepos;
+    }
+
+    public Integer getPublicGists() {
+        return publicGists;
+    }
+
+    public void setPublicGists(Integer publicGists) {
+        this.publicGists = publicGists;
+    }
+
+    public Integer getFollowers() {
+        return followers;
+    }
+
+    public void setFollowers(Integer followers) {
+        this.followers = followers;
+    }
+
+    public Integer getFollowing() {
+        return following;
+    }
+
+    public void setFollowing(Integer following) {
+        this.following = following;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
 }

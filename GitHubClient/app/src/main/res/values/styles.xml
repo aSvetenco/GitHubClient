@@ -13,4 +13,14 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+
+    <style name="SearchBarStyle" parent="Widget.AppCompat.SearchView">
+        <item name="queryBackground">@color/colorDefaultWhite</item>
+        <item name="android:textSize">@dimen/text_all_13sp</item>
+        <item name="queryHint">@string/search_view_hint</item>
+
+    </style>
+
+
+
 </resources>

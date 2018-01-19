@@ -6,18 +6,14 @@ import java.util.List;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import rx.Observable;
-import sa.githubclient.api.models.Branch;
-import sa.githubclient.api.models.Contributor;
-import sa.githubclient.api.models.Repository;
+import sa.githubclient.api.models.User;
 
 public interface Api {
 
-    @GET("/users/{user}/repos")
-    Observable<List<Repository>> getRepositories(@Path("user") String user);
+    @GET("/users/{username}")
+    Observable<User> getUserPublicProfile(@Path("username") String user);
 
-    @GET("/repos/{owner}/{repo}/contributors")
-    Observable<List<Contributor>> getContributors(@Path("owner") String owner, @Path("repo") String repo);
+    @GET("/users/{username}/repos")
+    Observable<List<Repository>> getRepositories(@Path("username") String user);
 
-    @GET("/repos/{owner}/{repo}/branches")
-    Observable<List<Branch>> getBranches(@Path("owner") String owner, @Path("repo") String repo);
 }

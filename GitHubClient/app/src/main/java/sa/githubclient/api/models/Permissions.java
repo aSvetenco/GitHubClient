@@ -8,53 +8,35 @@ public class Permissions {
 
     @SerializedName("admin")
     @Expose
-    private boolean admin;
+    private Boolean admin;
     @SerializedName("push")
     @Expose
-    private boolean push;
+    private Boolean push;
     @SerializedName("pull")
     @Expose
-    private boolean pull;
+    private Boolean pull;
 
-    /**
-     * @return The admin
-     */
-    public boolean isAdmin() {
+    public Boolean getAdmin() {
         return admin;
     }
 
-    /**
-     * @param admin The admin
-     */
-    public void setAdmin(boolean admin) {
+    public void setAdmin(Boolean admin) {
         this.admin = admin;
     }
 
-    /**
-     * @return The push
-     */
-    public boolean isPush() {
+    public Boolean getPush() {
         return push;
     }
 
-    /**
-     * @param push The push
-     */
-    public void setPush(boolean push) {
+    public void setPush(Boolean push) {
         this.push = push;
     }
 
-    /**
-     * @return The pull
-     */
-    public boolean isPull() {
+    public Boolean getPull() {
         return pull;
     }
 
-    /**
-     * @param pull The pull
-     */
-    public void setPull(boolean pull) {
+    public void setPull(Boolean pull) {
         this.pull = pull;
     }
 
