@@ -3,6 +3,8 @@
     package="sa.githubclient">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".GitHubApp"
         android:allowBackup="true"
@@ -11,8 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/NoActionBar">
-        <activity android:name=".screens.splash.SplashActivity"
-            android:theme="@style/SplashScreenTheme">
+        <activity android:name=".screens.repos.ReposActivity"/>
+        <activity android:name=".screens.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -13,7 +13,7 @@ public class NetworkModule {
 
     @Singleton
     @Provides
-    NetworkUtils providesNetworkUtils(Context context) {
+    NetworkUtils providesNetworkUtils(Context context){
         return new NetworkUtils(context);
     }
 }
