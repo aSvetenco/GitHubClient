@@ -9,6 +9,7 @@ public interface MainView {
     Observable<Void> onSeeUserReposClick();
     void showError(int resId);
     void showError(String string);
+    void hideKeyboard();
     void hideLoading();
     void showLoading();
     void showUser(User user);

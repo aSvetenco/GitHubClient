@@ -47,11 +47,11 @@ public class ReposRVAdapter extends BaseRVAdapter<Repository> {
                 language.setVisibility(View.VISIBLE);
                 language.setText(data.getLanguage());
             }
-            if (data.getStargazersCount() != null) {
+            if (data.getStargazersCount() != null && data.getStargazersCount() != 0) {
                 starCount.setVisibility(View.VISIBLE);
                 starCount.setText(String.valueOf(data.getStargazersCount()));
             }
-            if (data.getForksCount() != null) {
+            if (data.getForksCount() != null && data.getForksCount() != 0) {
                 forks.setVisibility(View.VISIBLE);
                 forks.setText(String.valueOf(data.getForksCount()));
             }

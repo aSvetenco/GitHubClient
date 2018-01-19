@@ -52,6 +52,7 @@ public class MainPresenter {
                 .filter(isNetworkAvailable -> isNetworkAvailable)
                 .observeOn(rxSchedulers.network())
                 .flatMap(aBoolean -> model.getUserPublicProfile(userName)
+                        .observeOn(rxSchedulers.androidUI())
                         .onErrorResumeNext(throwable -> {
                             handleThrowable(throwable);
                             return Observable.never();

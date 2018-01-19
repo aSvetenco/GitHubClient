@@ -1,7 +1,5 @@
 package sa.githubclient.screens.main;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
@@ -17,8 +15,6 @@ import android.widget.Toast;
 import com.jakewharton.rxbinding.view.RxView;
 import com.squareup.picasso.Picasso;
 
-import java.util.List;
-
 import javax.inject.Inject;
 
 import butterknife.BindView;
@@ -27,13 +23,15 @@ import rx.Observable;
 import rx.subjects.PublishSubject;
 import sa.githubclient.GitHubApp;
 import sa.githubclient.R;
-import sa.githubclient.api.models.Repository;
 import sa.githubclient.api.models.User;
 import sa.githubclient.screens.main.dagger.DaggerMainActivityComponent;
 import sa.githubclient.screens.main.dagger.MainActivityModule;
 import sa.githubclient.screens.main.mvp.MainPresenter;
 import sa.githubclient.screens.main.mvp.MainView;
 import sa.githubclient.screens.repos.ReposActivity;
+import sa.githubclient.utils.CommonUtils;
+
+import static android.view.View.GONE;
 
 public class MainActivity extends AppCompatActivity implements MainView {
 
@@ -86,6 +84,8 @@ public class MainActivity extends AppCompatActivity implements MainView {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 searchViewSubject.onNext(query);
+                hideKeyboard();
+                searchView.clearFocus();
                 return true;
             }
 
@@ -124,8 +124,13 @@ public class MainActivity extends AppCompatActivity implements MainView {
     }
 
     @Override
+    public void hideKeyboard() {
+        CommonUtils.hideKeyboard(this);
+    }
+
+    @Override
     public void hideLoading() {
-        loader.setVisibility(View.GONE);
+        loader.setVisibility(GONE);
     }
 
     @Override
