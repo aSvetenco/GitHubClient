@@ -2,12 +2,12 @@ package sa.githubclient.screens.main.mvp;
 
 import android.util.Log;
 
+import retrofit2.HttpException;
 import rx.Observable;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.subscriptions.CompositeSubscription;
 import sa.githubclient.R;
-import sa.githubclient.api.models.User;
 import sa.githubclient.utils.NetworkUtils;
 import sa.githubclient.utils.exceptions.NoNetworkException;
 import sa.githubclient.utils.rx.RxSchedulers;
@@ -21,9 +21,6 @@ public class MainPresenter {
     private final NetworkUtils networkUtils;
     private String userName;
     private MainView view;
-    private User userProfile;
-
-
 
     public MainPresenter(RxSchedulers rxSchedulers,
                          CompositeSubscription compositeSubscription,
@@ -38,6 +35,7 @@ public class MainPresenter {
     public void takeView(MainView view) {
         this.view = view;
         subscription.add(registerOnSearchQueryChangedSubscription());
+        subscription.add(registerOnSeeUserReposClick());
     }
 
     private Subscription registerOnSearchQueryChangedSubscription() {
@@ -51,9 +49,13 @@ public class MainPresenter {
                             handleThrowable(throwable);
                             return Observable.never();
                         }))
-               // .filter(isNetworkAvailable -> !isNetworkAvailable)
+                .filter(isNetworkAvailable -> isNetworkAvailable)
                 .observeOn(rxSchedulers.network())
-                .flatMap(aBoolean -> model.getUserPublicProfile(userName))
+                .flatMap(aBoolean -> model.getUserPublicProfile(userName)
+                        .onErrorResumeNext(throwable -> {
+                            handleThrowable(throwable);
+                            return Observable.never();
+                        }))
                 .observeOn(rxSchedulers.androidUI())
                 .doOnNext(user -> {
                     if (user == null) {
@@ -62,41 +64,31 @@ public class MainPresenter {
                     }
                 })
                 .filter(user -> user != null)
-                .doOnNext(user -> userProfile = user)
-                .flatMap(user -> networkUtils.networkAvailableWithException()
-                        .observeOn(rxSchedulers.androidUI())
-                        .onErrorResumeNext(throwable -> {
-                            handleThrowable(throwable);
-                            return Observable.never();
-                        }))
-                //.filter(isNetworkAvailable -> !isNetworkAvailable)
-                .observeOn(rxSchedulers.network())
-                .flatMap(aBoolean -> model.getUserRepo(userName))
-                .observeOn(rxSchedulers.androidUI())
-                .doOnNext(repositories -> {
-                    if (repositories == null || repositories.isEmpty()) {
-                        view.hideLoading();
-                        view.showError(R.string.user_doest_have_repo);
-                    }
-                })
-                .filter(repositories -> !(repositories == null || repositories.isEmpty()))
-                .subscribe(repositories -> {
-                    view.hideLoading();
-                    view.showUser(userProfile);
-                    view.showRepos(repositories);
-                },
+                .subscribe(user -> {
+                            view.hideLoading();
+                            view.showUser(user);
+                        },
                         throwable -> Log.d(TAG, "GET user info fail", throwable));
-
     }
 
+    private Subscription registerOnSeeUserReposClick() {
+        return view.onSeeUserReposClick()
+                .subscribe(aVoid -> view.startRepoActivity(userName));
+    }
 
     private void handleThrowable(Throwable throwable) {
         view.hideLoading();
         if (throwable instanceof NoNetworkException) {
             view.showError(R.string.error_no_network);
+        } else if (throwable instanceof HttpException) {
+            view.showError(((HttpException) throwable).message());
         } else {
             view.showError(R.string.error_general);
         }
+    }
+
+    public void detachView() {
+        subscription.clear();
     }
 
 }

@@ -1,11 +1,20 @@
 package sa.githubclient.screens.repos.mvp;
 
-import sa.githubclient.utils.SharedPref;
+import java.util.List;
+
+import sa.githubclient.api.Api;
+import sa.githubclient.api.models.Repository;
 
 public class ReposModel {
-    private final SharedPref sharedPref;
+    private final Api api;
+    private String userName;
 
-    public ReposModel(SharedPref sharedPref) {
-        this.sharedPref = sharedPref;
+    public ReposModel(Api api, String userName) {
+        this.api = api;
+        this.userName = userName;
+    }
+
+    public rx.Observable<List<Repository>> getUserRepository() {
+        return api.getRepositories(userName);
     }
 }

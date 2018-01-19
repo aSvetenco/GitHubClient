@@ -6,6 +6,7 @@ import java.util.List;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import rx.Observable;
+import sa.githubclient.api.models.Repository;
 import sa.githubclient.api.models.User;
 
 public interface Api {

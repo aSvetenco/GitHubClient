@@ -4,6 +4,7 @@ import java.util.List;
 
 import rx.Observable;
 import sa.githubclient.api.Api;
+import sa.githubclient.api.models.Repository;
 import sa.githubclient.api.models.User;
 import sa.githubclient.utils.SharedPref;
 

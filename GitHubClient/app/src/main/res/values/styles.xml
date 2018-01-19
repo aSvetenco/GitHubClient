@@ -21,6 +21,19 @@
 
     </style>
 
+    <style name="TextViewUserDataStyle" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/text_all_10sp</item>
+        <item name="android:textSize">@dimen/text_all_15sp</item>
+        <item name="textAllCaps">false</item>
+    </style>
 
-
+    <style name="TextViewRepoItemStyle" >
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawablePadding">@dimen/spacing_all_5dp</item>
+        <item name="android:textSize">@dimen/text_all_13sp</item>
+        <item name="textAllCaps">false</item>
+    </style>
 </resources>

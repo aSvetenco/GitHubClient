@@ -1,16 +1,15 @@
 package sa.githubclient.screens.repos.mvp;
 
-import rx.Observable;
+import java.util.List;
+
+import sa.githubclient.api.models.Repository;
 
 public interface ReposView {
 
-    Observable<CharSequence> getUserName();
-    Observable<CharSequence> getPassword();
-    Observable<Void> onContinueClick();
-    void showMainActivity(String name, String password);
-    void showUserNameError(int resId);
-    void showPasswordError(int resId);
- /*   void resetErrors();
-*/
+    void showError(int resId);
+    void showError(String string);
+    void hideLoading();
+    void showLoading();
+    void showRepos(List<Repository> repositories);
 
 }

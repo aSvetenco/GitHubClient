@@ -24,43 +24,70 @@
     </android.support.v7.widget.Toolbar>
 
     <ScrollView
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbar">
+        android:layout_below="@+id/toolbar"
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_all_32dp">
 
             <ImageView
                 android:id="@+id/avatar"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:layout_gravity="center"
-                android:layout_marginBottom="@dimen/text_all_20sp"
-                android:layout_marginTop="@dimen/text_all_20sp"
                 android:scaleType="fitCenter" />
 
-            <android.support.v7.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:isScrollContainer="false"/>
+            <TextView
+                android:id="@+id/login"
+                style="@style/TextViewUserDataStyle"
+                android:text="@string/user_login" />
+            <TextView
+                android:id="@+id/user_name"
+                style="@style/TextViewUserDataStyle"
+                android:text="@string/user_login" />
+            <TextView
+                android:id="@+id/email"
+                style="@style/TextViewUserDataStyle"
+                android:text="@string/user_email" />
+            <TextView
+                android:id="@+id/bio"
+                style="@style/TextViewUserDataStyle"
+                android:text="@string/bio" />
+            <TextView
+                android:id="@+id/location"
+                style="@style/TextViewUserDataStyle"
+                android:text="@string/location" />
+            <TextView
+                android:id="@+id/public_repos"
+                style="@style/TextViewUserDataStyle"
+                android:text="@string/public_repos" />
+            <TextView
+                android:id="@+id/public_gists"
+                style="@style/TextViewUserDataStyle"
+                android:text="@string/public_gists" />
 
             <Button
                 android:id="@+id/repository_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_all_32dp"
                 android:drawableRight="@drawable/ic_chevron_right"
                 android:text="@string/see_user_repos" />
 
         </LinearLayout>
     </ScrollView>
+
     <FrameLayout
         android:id="@+id/progressBarContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <ProgressBar
             style="?android:attr/progress"
